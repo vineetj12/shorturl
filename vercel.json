@@ -1,0 +1,9 @@
+{
+  "buildCommand": "npx prisma generate && npm run build",
+  "functions": {
+    "app/api/**.[tj]s": {
+      "memory": 512,
+      "maxDuration": 10
+    }
+  }
+}
