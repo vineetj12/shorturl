@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { PrismaClient } from "@/app/generated/prisma";
 import crypto from "crypto";
 import { NextRequest, NextResponse } from "next/server";
