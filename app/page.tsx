@@ -1,4 +1,5 @@
 "use client";
+import ShortBox from "@/component/ShortBox";
 import Textondashboard from "@/component/Textondashboard";
 import TopBar from "@/component/TopBar";
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
       <TopBar />
       <div className="flex flex-col justify-center items-center flex-1 p-4">
       <Textondashboard />
+      <ShortBox />
       </div>
     </div>
   );
