@@ -6,10 +6,12 @@ const prisma = new PrismaClient();
 export default async function Page({
   params,
 }: {
-  params: { shorturl: string };
+  params: Promise<{ shorturl: string }>;
 }) {
+  const { shorturl } = await params;
+
   const result = await prisma.tryurl.findFirst({
-    where: { shorturl: params.shorturl },
+    where: { shorturl },
   });
 
   if (result?.url) {
