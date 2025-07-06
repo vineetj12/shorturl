@@ -3,13 +3,7 @@ import { PrismaClient } from "@/app/generated/prisma";
 
 const prisma = new PrismaClient();
 
-type PageProps = {
-  params: {
-    shorturl: string;
-  };
-};
-
-export default async function Page({ params }: PageProps) {
+export default async function Page({ params }: { params: { shorturl: string } }) {
   const result = await prisma.tryurl.findFirst({
     where: { shorturl: params.shorturl },
   });
