@@ -18,4 +18,3 @@ export default async function Page({
 
   return <div>Short URL not found</div>;
 }
-// trigger rebuild
