@@ -3,7 +3,7 @@ import Inputsignup from './Inputsignup'
 function Signupright() {
   return (
     <div className='grid pt-17 pb-17'>
-      <div className='font-bold text-2xl'>GET start for free</div>
+      <div className='font-bold text-2xl'>Get start for free</div>
       <Inputsignup placeholdername='Enter Your Name'/>
       <Inputsignup placeholdername='Password'/>
       <button className='font-bold bg-purple-100 text-black-100 rounded-4xl w-[340px] h-[40px]'>Sign up</button>
