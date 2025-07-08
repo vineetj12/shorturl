@@ -1,5 +1,5 @@
 
-import { PrismaClient } from "@/app/generated/prisma";
+import { PrismaClient } from '@prisma/client';
 import crypto from "crypto";
 import { NextRequest, NextResponse } from "next/server";
 
