@@ -19,10 +19,10 @@ const TopBar = () => {
       </div>
 
       <div className="flex space-x-4">
-        <button className="shadow-[inset_0_0_0_2px_#616467] text-blue-100 px-4 py-1.5 rounded-full tracking-widest uppercase font-bold bg-transparent hover:bg-[#616467] hover:text-white transition duration-200">
+        <button onClick={() => router.push('/signin')} className=" cursor-pointer shadow-[inset_0_0_0_2px_#616467] text-blue-100 px-4 py-1.5 rounded-full tracking-widest uppercase font-bold bg-transparent hover:bg-[#616467] hover:text-white transition duration-200">
           Signin
         </button>
-        <button onClick={() => router.push('/signup')} className="shadow-[inset_0_0_0_2px_#616467] text-blue-100 px-4 py-1.5 rounded-full tracking-widest uppercase font-bold bg-transparent hover:bg-[#616467] hover:text-white transition duration-200">
+        <button onClick={() => router.push('/signup')} className="cursor-pointer shadow-[inset_0_0_0_2px_#616467] text-blue-100 px-4 py-1.5 rounded-full tracking-widest uppercase font-bold bg-transparent hover:bg-[#616467] hover:text-white transition duration-200">
           Create Account
         </button>
       </div>
