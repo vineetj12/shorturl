@@ -9,7 +9,7 @@ const handler=NextAuth({
                     username:{label:'email',type:'text',placeholder:'email'},
                     password:{label:'password',type:'text',placeholder:'password'}
                 },
-               async authorize(credentials:any, req) {
+               async authorize(credentials:any) {
                   return   {
                     id:"user1",
                     name:credentials.username
