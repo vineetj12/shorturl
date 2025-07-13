@@ -2,6 +2,8 @@
 import React, { useState } from 'react'
 import Inputsignup from '../signup/Inputsignup'
 import axios from 'axios';
+import { signIn } from 'next-auth/react';
+import Github from 'next-auth/providers/github';
 function Signinmid() {
   async function onclick():Promise<void>{
     const response=await axios.post(`/api/signin`,{username:username,password:password});
@@ -21,7 +23,7 @@ function Signinmid() {
       <div className='flex justify-center'>or sign in with</div>
       <div className='flex justify-evenly'>
         <button className='cursor-pointer shadow-[0_0_60px_rgba(98,148,235,0.7)] hover:shadow-[0_0_60px_rgba(98,148,235)] rounded-4xl w-[140px] h-[40px]'>Google</button>
-        <button className='cursor-pointer shadow-[0_0_60px_rgb(98,148,235,0.7)] hover:shadow-[0_0_60px_rgba(98,148,235)] rounded-4xl w-[140px] h-[40px]'>Github</button>
+        <button onClick={async() => await signIn("github",{ callbackUrl: "/" })}  className='cursor-pointer shadow-[0_0_60px_rgb(98,148,235,0.7)] hover:shadow-[0_0_60px_rgba(98,148,235)] rounded-4xl w-[140px] h-[40px]'>Github</button>
       </div>
     </div>
   )
