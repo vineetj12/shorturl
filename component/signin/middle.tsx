@@ -21,7 +21,7 @@ function Signinmid() {
       <div className='flex justify-center'>or sign in with</div>
       <div className='flex justify-evenly'>
         <button className='cursor-pointer shadow-[0_0_60px_rgba(98,148,235,0.7)] hover:shadow-[0_0_60px_rgba(98,148,235)] rounded-4xl w-[140px] h-[40px]'>Google</button>
-        <button className='cursor-pointer shadow-[0_0_60px_rgb(98,148,235,0.7)] hover:shadow-[0_0_60px_rgba(98,148,235)] rounded-4xl w-[140px] h-[40px]'>Facebook</button>
+        <button className='cursor-pointer shadow-[0_0_60px_rgb(98,148,235,0.7)] hover:shadow-[0_0_60px_rgba(98,148,235)] rounded-4xl w-[140px] h-[40px]'>Github</button>
       </div>
     </div>
   )
