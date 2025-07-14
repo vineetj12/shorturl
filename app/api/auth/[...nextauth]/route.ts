@@ -2,6 +2,7 @@ import NextAuth from "next-auth";
 import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GitHubProvider from "next-auth/providers/github";
+import crypto from "crypto";
 
 const authOptions: NextAuthOptions = {
   providers: [
@@ -15,7 +16,6 @@ const authOptions: NextAuthOptions = {
         credentials: Record<"username" | "password", string> | undefined
       ) {
         if (!credentials) return null;
-
         return {
           id: "user1",
           name: credentials.username,
