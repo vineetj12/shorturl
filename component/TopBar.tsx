@@ -3,7 +3,14 @@ import React from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation'
 import { signIn,signOut } from 'next-auth/react';
-const  TopBar = ({status}:string) => {
+type Status = "authenticated" | "loading" | "unauthenticated";
+
+interface TopBarProps {
+  status: Status;
+}
+
+
+const  TopBar = ({status}:TopBarProps) => {
   const router = useRouter();
   return (
     <header className="text-blue-100 flex justify-between items-center p-2">

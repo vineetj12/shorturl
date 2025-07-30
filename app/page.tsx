@@ -9,7 +9,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-black-100 text-white flex flex-col overflow-hidden">
-      <TopBar />
+      <TopBar status={status}/>
       <div className="flex flex-col justify-center items-center flex-1 p-4">
         <Textondashboard />
         {status !== "unauthenticated" && <ShortBox />}
