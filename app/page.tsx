@@ -10,8 +10,9 @@ export default function Home() {
       <TopBar />
       <div className="flex flex-col justify-center items-center flex-1 p-4">
       <Textondashboard />
+      if(JSON.stringify(session).status!='unauthenticated'){
       <ShortBox />
-      {JSON.stringify(session)}
+      }
       </div>
     </div>
   );
