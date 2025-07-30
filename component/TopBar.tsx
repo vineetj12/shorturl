@@ -30,9 +30,9 @@ const  TopBar = ({status}:TopBarProps) => {
         {status === "unauthenticated"&&<button onClick={()=>{signIn()}} className=" cursor-pointer shadow-[inset_0_0_0_2px_#616467] text-blue-100 px-4 py-1.5 rounded-full tracking-widest uppercase font-bold bg-transparent hover:bg-[#616467] hover:text-white transition duration-200">
           Signin
         </button>}
-        <button onClick={()=>{signOut()}} className=" cursor-pointer shadow-[inset_0_0_0_2px_#616467] text-blue-100 px-4 py-1.5 rounded-full tracking-widest uppercase font-bold bg-transparent hover:bg-[#616467] hover:text-white transition duration-200">
+        {status === "authenticated"&&<button onClick={()=>{signOut()}} className=" cursor-pointer shadow-[inset_0_0_0_2px_#616467] text-blue-100 px-4 py-1.5 rounded-full tracking-widest uppercase font-bold bg-transparent hover:bg-[#616467] hover:text-white transition duration-200">
           Signout
-        </button>
+        </button>}
         {status === "unauthenticated" && <button onClick={() => router.push('/signup')} className="cursor-pointer shadow-[inset_0_0_0_2px_#616467] text-blue-100 px-4 py-1.5 rounded-full tracking-widest uppercase font-bold bg-transparent hover:bg-[#616467] hover:text-white transition duration-200">
           Create Account
         </button>}
