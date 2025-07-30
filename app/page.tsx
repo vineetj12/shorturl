@@ -11,7 +11,7 @@ export default function Home() {
       <div className="flex flex-col justify-center items-center flex-1 p-4">
       <Textondashboard />
       if(JSON.stringify(session).status!='unauthenticated'){
-      <ShortBox />
+        <ShortBox />
       }
       </div>
     </div>
