@@ -3,7 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation'
 import { signIn,signOut } from 'next-auth/react';
-const  TopBar = () => {
+const  TopBar = ({status}:string) => {
   const router = useRouter();
   return (
     <header className="text-blue-100 flex justify-between items-center p-2">
@@ -20,15 +20,15 @@ const  TopBar = () => {
       </div>
 
       <div className="flex space-x-4">
-        <button onClick={()=>{signIn()}} className=" cursor-pointer shadow-[inset_0_0_0_2px_#616467] text-blue-100 px-4 py-1.5 rounded-full tracking-widest uppercase font-bold bg-transparent hover:bg-[#616467] hover:text-white transition duration-200">
+        {status === "unauthenticated"&&<button onClick={()=>{signIn()}} className=" cursor-pointer shadow-[inset_0_0_0_2px_#616467] text-blue-100 px-4 py-1.5 rounded-full tracking-widest uppercase font-bold bg-transparent hover:bg-[#616467] hover:text-white transition duration-200">
           Signin
-        </button>
+        </button>}
         <button onClick={()=>{signOut()}} className=" cursor-pointer shadow-[inset_0_0_0_2px_#616467] text-blue-100 px-4 py-1.5 rounded-full tracking-widest uppercase font-bold bg-transparent hover:bg-[#616467] hover:text-white transition duration-200">
           Signout
         </button>
-        <button onClick={() => router.push('/signup')} className="cursor-pointer shadow-[inset_0_0_0_2px_#616467] text-blue-100 px-4 py-1.5 rounded-full tracking-widest uppercase font-bold bg-transparent hover:bg-[#616467] hover:text-white transition duration-200">
+        {status === "unauthenticated" && <button onClick={() => router.push('/signup')} className="cursor-pointer shadow-[inset_0_0_0_2px_#616467] text-blue-100 px-4 py-1.5 rounded-full tracking-widest uppercase font-bold bg-transparent hover:bg-[#616467] hover:text-white transition duration-200">
           Create Account
-        </button>
+        </button>}
       </div>
     </header>
   );
