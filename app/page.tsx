@@ -5,8 +5,8 @@ import TopBar from "@/component/TopBar";
 import { useSession } from "next-auth/react";
 
 export default function Home() {
-  const { status } = useSession();
-
+  const { data: session, status } = useSession();
+    console.log(session?.user?.name); 
   return (
     <div className="min-h-screen bg-black-100 text-white flex flex-col overflow-hidden">
       <TopBar status={status}/>
