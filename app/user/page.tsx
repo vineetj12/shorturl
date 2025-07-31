@@ -1,5 +1,4 @@
-"use client";
-import UserPage from "@/component/UserPage";
+import UserClientWrapper from "@/component/UserClientWrapper";
 export default function Page() {
-  return <UserPage />;
+  return <UserClientWrapper />;
 }
