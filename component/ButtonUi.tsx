@@ -9,20 +9,22 @@ interface ButtonUiProps {
 const ButtonUi: React.FC<ButtonUiProps> = ({ url }) => {
   const [showText, setShowText] = useState(false);
   const [copied, setCopied] = useState(false);
-  const [shorturl, setshorturl] = useState("");
+  const [shorturl, setShorturl] = useState("");
 
   const handleClick = async () => {
     try {
+      const username = localStorage.getItem("username");
       const baseUrl = window.location.origin;
-      const response = await axios.post(`/api/v1`, { url,username:localStorage.getItem("username")});
+
+      const response = await axios.post(`/api/v1`, { url, username });
       const fullShortUrl = `${baseUrl}/${response.data.hash}`;
-      setshorturl(fullShortUrl);
+      setShorturl(fullShortUrl);
       setShowText(true);
+
       const data = await axios.get("/api/users", {
-        params: {
-          username: localStorage.getItem("username")
-        }
+        params: { username },
       });
+
       console.log(data);
     } catch (error) {
       console.error("Error posting data:", error);
@@ -45,11 +47,7 @@ const ButtonUi: React.FC<ButtonUiProps> = ({ url }) => {
         <div className="flex justify-between mt-4 text-white text-lg font-semibold p-2">
           <div className="m-1">{shorturl}</div>
           <button onClick={handleCopy} className="px-3 py-1 rounded-md">
-            {copied ? (
-              <CopiedIcon />
-            ) : (
-              <CopyIcon />
-            )}
+            {copied ? <CopiedIcon /> : <CopyIcon />}
           </button>
         </div>
       )}
