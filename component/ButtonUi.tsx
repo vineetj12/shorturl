@@ -15,7 +15,6 @@ const ButtonUi: React.FC<ButtonUiProps> = ({ url }) => {
   const handleClick = async () => {
     try {
       const baseUrl = window.location.origin;
-
       const response = await axios.post(`/api/v1`, { url, username:session?.user?.name});
       const fullShortUrl = `${baseUrl}/${response.data.hash}`;
       setShorturl(fullShortUrl);
