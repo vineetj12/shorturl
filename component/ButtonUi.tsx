@@ -23,6 +23,7 @@ const ButtonUi: React.FC<ButtonUiProps> = ({ url }) => {
           username: localStorage.getItem("username")
         }
       });
+      console.log(data);
     } catch (error) {
       console.error("Error posting data:", error);
     }
