@@ -1,5 +1,6 @@
 "use client";
 import UserPage from "@/component/UserPage";
+import { RecoilRoot } from "recoil";
 export default function UserClientWrapper() {
-  return <UserPage />;
+  return <RecoilRoot><UserPage /></RecoilRoot>;
 }
