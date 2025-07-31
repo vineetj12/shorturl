@@ -5,7 +5,7 @@
  import axios from "axios";
  import { history } from "@/component/Atoms";
  import { useSession } from 'next-auth/react';
- function page() {
+ function Page() {
     const { data:session,status } = useSession();
     const [data,setdata]=useRecoilState(history);
     useEffect(()=>{
@@ -25,5 +25,5 @@
    )
  }
  
- export default page
+ export default Page
  
