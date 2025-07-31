@@ -4,12 +4,16 @@ import Textondashboard from "@/component/Textondashboard";
 import TopBar from "@/component/TopBar";
 import { useSession } from "next-auth/react";
 import { history } from "@/component/Atoms";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useRecoilState } from "recoil";
 export default function Home() {
+  const [isClient, setIsClient] = useState(false);
   const { data:session,status } = useSession();
   const [data,setdata]=useRecoilState(history);
+    useEffect(() => {
+    setIsClient(true); 
+  }, []);
   useEffect(()=>{
     if(status!=="authenticated") return;
     async function history(){
@@ -20,7 +24,8 @@ export default function Home() {
     }
     history();
     console.log(data);
-  },[status]);
+  },[status,isClient]);
+   if (!isClient) return null;
   return (
     <div className="min-h-screen bg-black-100 text-white flex flex-col overflow-hidden">
       <TopBar status={status}/>
