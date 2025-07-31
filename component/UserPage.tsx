@@ -1,3 +1,4 @@
+
 "use client";
 import React, { useEffect } from "react";
 import { useRecoilState } from "recoil";
@@ -11,12 +12,14 @@ export default function UserPage() {
 
   useEffect(() => {
     if (status !== "authenticated") return;
+
     async function fetchHistory() {
       const response = await axios.get("/api/user", {
         params: { username: session?.user?.name },
       });
       setData(response.data.data);
     }
+
     fetchHistory();
   }, [session?.user?.name, status, setData]);
 
