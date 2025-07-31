@@ -19,7 +19,7 @@ const ButtonUi: React.FC<ButtonUiProps> = ({ url }) => {
       const fullShortUrl = `${baseUrl}/${response.data.hash}`;
       setShorturl(fullShortUrl);
       setShowText(true);
-
+       await new Promise(res => setTimeout(res, 100));
       const data = await axios.get("/api/user", {
         params: { username:session?.user?.name },
       });
