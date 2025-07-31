@@ -27,7 +27,11 @@ export async function POST(request: NextRequest) {
           shorturl: short,
         },
       });
-
+      await prisma.data.create({data:{
+        username:body.username,
+        nickname:body.url,
+        url:body.url,
+      }})
       return NextResponse.json({ hash: short });
     } else {
       return NextResponse.json({ hash: existing.shorturl });

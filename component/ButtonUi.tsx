@@ -14,11 +14,15 @@ const ButtonUi: React.FC<ButtonUiProps> = ({ url }) => {
   const handleClick = async () => {
     try {
       const baseUrl = window.location.origin;
-      const response = await axios.post(`/api/v1`, { url });
-
+      const response = await axios.post(`/api/v1`, { url,username:localStorage.getItem("username")});
       const fullShortUrl = `${baseUrl}/${response.data.hash}`;
       setshorturl(fullShortUrl);
       setShowText(true);
+      const data = await axios.get("/api/users", {
+        params: {
+          username: localStorage.getItem("username")
+        }
+      });
     } catch (error) {
       console.error("Error posting data:", error);
     }

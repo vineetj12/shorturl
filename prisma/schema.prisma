@@ -20,3 +20,8 @@ model User{
   username String @id
   password String
 }
+model data{
+  username String @id
+  nickname String
+  url String
+}
