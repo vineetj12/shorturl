@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
 import { useRecoilState } from "recoil";
-import { history } from "@/component/Atoms";
+import { history } from "@/atom/Atoms";
 import { useSession } from "next-auth/react";
 import axios from "axios";
 
