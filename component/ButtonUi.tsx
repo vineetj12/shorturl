@@ -24,7 +24,7 @@ const ButtonUi: React.FC<ButtonUiProps> = ({ url }) => {
         params: { username:session?.user?.name },
       });
 
-      console.log(data.data);
+      console.log(data.data.data);
     } catch (error) {
       console.error("Error posting data:", error);
     }
