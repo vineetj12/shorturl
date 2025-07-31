@@ -12,7 +12,7 @@ export async function GET(req: Request) {
   }
 
   try {
-    const data = await prisma.user.findMany({
+    const data = await prisma.data.findMany({
       where: { username },
     });
 
