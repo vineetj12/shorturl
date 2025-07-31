@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import axios from "axios";
+import { useSession } from "next-auth/react";
 
 interface ButtonUiProps {
   url: string;
@@ -10,19 +11,18 @@ const ButtonUi: React.FC<ButtonUiProps> = ({ url }) => {
   const [showText, setShowText] = useState(false);
   const [copied, setCopied] = useState(false);
   const [shorturl, setShorturl] = useState("");
-
+  const { data: session } = useSession();
   const handleClick = async () => {
     try {
-      const username = localStorage.getItem("username");
       const baseUrl = window.location.origin;
 
-      const response = await axios.post(`/api/v1`, { url, username });
+      const response = await axios.post(`/api/v1`, { url, username:session?.user?.name});
       const fullShortUrl = `${baseUrl}/${response.data.hash}`;
       setShorturl(fullShortUrl);
       setShowText(true);
 
       const data = await axios.get("/api/users", {
-        params: { username },
+        params: { username:session?.user?.name },
       });
 
       console.log(data);
