@@ -20,7 +20,7 @@ const ButtonUi: React.FC<ButtonUiProps> = ({ url }) => {
       setShorturl(fullShortUrl);
       setShowText(true);
 
-      const data = await axios.get("/api/users", {
+      const data = await axios.get("/api/user", {
         params: { username:session?.user?.name },
       });
 
