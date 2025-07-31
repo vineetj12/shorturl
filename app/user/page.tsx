@@ -1,10 +1,5 @@
 "use client";
-import dynamic from "next/dynamic";
-
-const UserPage = dynamic(() => import("@/component/UserPage"), {
-  ssr: false,
-});
-
+import UserPage from "@/component/UserPage";
 export default function Page() {
   return <UserPage />;
 }
